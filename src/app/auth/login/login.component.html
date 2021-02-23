@@ -1,0 +1,87 @@
+<div *ngIf="isLoading" style="text-align: center;">
+    <app-loading-spinner></app-loading-spinner>
+</div>
+
+
+<form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6 alert alert-danger" *ngIf="isError">
+                <h5>An Error Occurred</h5>
+                <p>{{errorMsg}}</p>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <label for="uname"> <b> Username :  </b>    </label>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <input type="text" placeholder="Enter Username" name="userName" required ngModel  #username="ngModel" class="form-control" >
+                <span
+          class="help-block"
+          *ngIf="!username.valid && username.touched"
+          style="color: red;"
+          >Please Enter a Valid User Name</span
+        >
+            </div>
+            <div class="col-sm-3"></div>
+            
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <label for="password"><b>Password :</b></label>
+            </div>
+            
+            <div class="col-sm-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <input type="password" placeholder="Enter Password" name="password" #password="ngModel" required ngModel class="form-control">
+                <span
+            class="help-block"
+            *ngIf="!password.valid && password.touched"
+            style="color: red;"
+            >Please Enter a Valid Password</span
+          >
+            </div>
+            
+            <div class="col-sm-3"></div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3">
+                <button class="btn btn-primary form-control" type="submit" [disabled]="!authForm.valid"> {{isLoginMode ? 'Login' : 'Sign Up'}}</button>
+            </div>
+            <div class="col-sm-3">
+                <button class="btn btn-secondary form-control" type="button" (click)="onSwitchMode()">Switch to {{isLoginMode ? 'Sign Up' : 'Login'}}</button></div>
+            <div class="col-sm-3"></div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                
+               
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        <br>
+    </div>
+</form>

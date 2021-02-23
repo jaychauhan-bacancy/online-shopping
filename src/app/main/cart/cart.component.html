@@ -1,0 +1,52 @@
+<div class="container">
+    
+
+    <div class="alert alert-danger" *ngIf="isError">
+        <h1>An Error Occurred</h1>
+        <p>{{errorMsg}}</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Product Image</th>
+                        <th scope="col">Product Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Delete Product</th>
+                        <th scope="col">+/- Quantity </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <div *ngIf="isLoading" style="text-align: center">
+                        <app-loading-spinner></app-loading-spinner>
+                    </div>
+                    <ng-container *ngFor="let x of cartProducts, let i = index">
+                        <ng-container *ngFor="let y of productData, let j = index">
+                            <ng-container *ngIf="x.productId == y.productId">
+                                <tr>
+                                    <td>{{y.productName}}</td>
+                                    <td>
+                                        <img width="75" height="75" [src]="y.productImage" />
+                                    </td>
+                                    <td>{{y.productPrice}} $</td>
+                                    <td>{{x.quantity}}</td>
+                                    <td>
+                                        <button class="btn btn-light btn-outline-danger" (click)="deleteFromCart(i)">Delete</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-light btn-outline-info btn-sm" (click)="increaseQuantity(i)">+</button> |
+                                        <button class="btn btn-light btn-outline-danger btn-sm" (click)="decreaseQuantity(i)">-</button>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
