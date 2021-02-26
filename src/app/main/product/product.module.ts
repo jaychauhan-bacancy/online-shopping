@@ -16,7 +16,7 @@ import { authGuard } from 'src/app/guards/auth.guard';
     CommonModule,
     RouterModule.forChild([
       {
-        path: '', component: ProductComponent, canActivate:[authGuard]
+        path: '', component: ProductComponent
       },
       {
         path: 'edit/:id', component: EditProductComponent, canActivate:[authGuard]
