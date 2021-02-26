@@ -45,7 +45,8 @@ export class ProductComponent implements OnInit {
       this.isError = true;
       this.errorMsg = error.message;
     });
-    this.toastr.success("Let's Crash the Market","Login Success:")
+    this.toastr.success("Let's Crash the Market","Login Success:");
+   
     this.isLoading = false;
   }
 

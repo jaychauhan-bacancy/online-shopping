@@ -9,11 +9,13 @@ import { SharedModule } from './core/loading-spinner/shared.module';
 import { HeaderComponent } from './layout/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { authIntercepterService } from './services/authIntercepter.service';
+import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent 
+    HeaderComponent,
+    PageNotFoundComponent 
   ],
   imports: [
     BrowserModule,

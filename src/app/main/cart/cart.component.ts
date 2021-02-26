@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading=true;
     this.getCartData(1);
-    this.toastr.info("Enter a Keyword in Given Field", "To many Products?")
+    
   }
 
   public getCartData(id:number):void

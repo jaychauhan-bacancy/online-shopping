@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
       import(
         './main/product/product.module'
       ).then((m)=>m.ProductModule),
+  },
+  {
+    path:'**',
+    component:PageNotFoundComponent
   }
 ];
 
